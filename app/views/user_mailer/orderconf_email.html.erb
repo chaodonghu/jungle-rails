@@ -4,10 +4,9 @@
      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
    </head>
    <body>
-     <h1>Hello <%= @user.name %></h1>
+     <h1>Hello <%= @user.first_name %></h1>
      <p>
-       This email confirms that your order has been succesfull,
-       your username is: <%= @user.login %>.<br>
+       This email confirms that your order made by <%= @user.email %> has been succesfull.
      </p>
      <p>
        To login to the site, just follow this link: <%= @url %>.
