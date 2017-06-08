@@ -16,8 +16,13 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     # Admin/categories routes created (allows index, create(post) and new(get))
-    resources :categories, only: [:new, :index]
+    resources :categories, only: [:new, :create, :index]
   end
+
+  # Routes used for user signup. The first renders a form in the broswer, the second will receive the form
+  # and create a user in our database utilizing the data provided by the user
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
