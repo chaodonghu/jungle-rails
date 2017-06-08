@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :categories, only: [:new, :create, :index]
   end
 
+  # these routes are for showing users a login form, logging them in, and logging them out.
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy
+
   # Routes used for user signup. The first renders a form in the broswer, the second will receive the form
   # and create a user in our database utilizing the data provided by the user
   get '/signup' => 'users#new'
