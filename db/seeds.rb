@@ -39,7 +39,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0, #Changed to 0 quantity for testing Soldout product badge
   price: 64.99
 })
 
