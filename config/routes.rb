@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    # Admin/categories routes created (allows index, create(post) and new(get))
+    resources :categories, only: [:new, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
