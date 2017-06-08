@@ -12,8 +12,6 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
-end
-
   private
 
   def cart
