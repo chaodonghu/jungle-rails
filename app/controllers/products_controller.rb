@@ -1,3 +1,5 @@
+# require 'pry'
+
 class ProductsController < ApplicationController
 
   def index
@@ -6,7 +8,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.where product_id: @product.id
+    @reviews = @product.reviews
+    # @reviews2 = Review.where product_id: @product.id
+    # binding.pry
+    @review = Review.new
   end
 
 end
