@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   require 'pry'
-  before_action :verify_user, only: :create
+  before_action :verify_user, only: [:create, :destroy]
 
   def create
     @product = Product.find(params[:product_id])
@@ -13,8 +13,12 @@ class ReviewsController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
+
+  def destroy
+     Review.find_by(id: params[:id]).destroy
+     redirect_to "/products/#{params[:product_id]}"
+   end
 
   private
   def product_id
