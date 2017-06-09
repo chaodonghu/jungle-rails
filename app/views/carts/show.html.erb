@@ -4,7 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
-  <% if !cart.blank %>
+  <% if !cart.blank? %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -52,8 +52,8 @@
   </div>
 
   <% else %>
-  <p>Hey! Your shopping cart seems to be empty, go back and add some things to your cart!</p>
-  <%= link_to 'Home', :root, class: 'btn btn-info' %>
-  <% end %> 
+  <p>Hey! Your shopping cart seems to be <strong>empty</strong>, go back and add some things to your cart!</p>
+  <%= link_to 'Our Products', :root, class: 'btn btn-info' %>
+  <% end %>
 
 </section>
