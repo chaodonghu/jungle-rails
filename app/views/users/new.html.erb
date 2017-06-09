@@ -1,11 +1,32 @@
-<h1>Signup!</h1>
+<header class="page-header">
+  <h1>Signup!</h1>
+</header>
+
+<div class="jumbotron">
 <%= form_for :user, url: '/users' do |f| %>
 
-   First Name: <%= f.text_field :first_name %>
-   Last Name: <%= f.text_field :last_name %>
-   Email: <%= f.text_field :email %>
-   Password: <%= f.password_field :password %>
-   Password Confirmation: <%= f.password_field :password_confirmation %>
+<div class="field">
+   First Name: <br>
+   <%= f.text_field :first_name %>
+ </div>
+ <div class="field">
+   Last Name:<br>
+   <%= f.text_field :last_name %>
+ </div>
+ <div class="field">
+   Email: <br>
+   <%= f.text_field :email %>
+ </div>
+ <div class="field">
+   Password: <br>
+   <%= f.password_field :password %>
+ </div>
+ <div class="field">
+   Password Confirmation: <br>
+   <%= f.password_field :password_confirmation %>
+ </div>
+ <br>
    <%= f.submit "Submit" %>
 
 <% end %>
+</div>
