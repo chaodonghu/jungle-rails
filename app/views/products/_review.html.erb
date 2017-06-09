@@ -1,15 +1,18 @@
-<article class="review dl-horizontal">
-   <% user = User.find review.user_id %>
-   <dt>User</dt>
-   <dd><%= user.first_name %><%= user.last_name %></dd>
-   <dt>Rating</dt>
-   <dd><%= review.rating %></dd>
-   <dt>Description</dt>
-   <dd><%= review.description%></dd>
-   <dt>Created At</dt>
-   <dd><%= review.created_at%></dd>
-   <% if current_user == user %>
+<section class="review">
+    <% user = User.find review.user_id %>
+   <% rating = review.rating %>
+   <span class="review-rating">
+     <% (1..5).each do |num| %>
+       <% if num <= rating %>
+         <span class="glyphicon glyphicon-star"></span>
+       <% else %>
+         <span class="glyphicon glyphicon-star-empty"></span>
+       <% end %>
+     <% end %>
+   </span>
+   <span class="review-info">By <%= user.first_name %> <%= user.last_name%> on <%= review.created_at %></span>
+   <span class="review-description"><%= review.description%></span>
+   <dd><% if current_user == user %>
    <%= link_to 'Delete', product_review_path(review.product_id, review.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-primary' %>
-   <% end %>
-
-</article>
+   <% end %></dd>
+ </section>
