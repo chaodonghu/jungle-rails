@@ -1,5 +1,3 @@
-# require 'pry'
-
 class ProductsController < ApplicationController
 
   def index
@@ -9,7 +7,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find params[:id]
     @reviews = Review.where(product_id: @product.id).order(created_at: :desc)
-    # binding.pry
     @review = Review.new
   end
 

@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  require 'pry'
   before_action :verify_user, only: [:create, :destroy]
 
   def create
@@ -27,7 +26,6 @@ class ReviewsController < ApplicationController
 
 
   def verify_user
-    # binding.pry
     if !current_user
       redirect_to login_path
     end
