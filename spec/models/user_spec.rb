@@ -20,6 +20,12 @@ RSpec.describe User, type: :model do
      expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
    end
 
+   it "must have password with a minimum length equal to 8" do
+       @user = User.new({first_name: "Dong",last_name: "Hu", email: "dong@dong.com", password: "short", password_confirmation: "short"})
+       @user.save
+       expect(@user.errors.full_messages).to include "Password is too short (minimum is 8 characters)"
+   end
+
    it "must have unique email" do
      @user1 = User.create({first_name: "Dong",last_name: "Hu", email: "dong@dong.com", password: "password", password_confirmation: "password"})
      @user2 = User.new({first_name: "Ariana",last_name: "Grande", email: "dong@dong.com", password: "password", password_confirmation: "password"})
