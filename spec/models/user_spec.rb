@@ -40,4 +40,21 @@ RSpec.describe User, type: :model do
      expect(@user2.errors.full_messages).to include "Email has already been taken"
    end
  end
+
+   describe ".authenticate_with_credentials" do
+    it "should return user when passed correct parameters" do
+      @user = User.create({first_name: "Dong",last_name: "Hu", email: "dong@dong.com", password: "password", password_confirmation: "password"})
+      expect(User.authenticate_with_credentials(@user.email, @user.password)).to eql @user
+    end
+
+    it "should return nil when passed incorrect email" do
+      @user = User.create({first_name: "Dong",last_name: "Hu", email: "dong@dong.com", password: "password", password_confirmation: "password"})
+      expect(User.authenticate_with_credentials("incorrect_email", @user.password)).to eql nil
+    end
+
+    it "should return nil when passed incorrect password" do
+      @user = User.create({first_name: "Dong",last_name: "Hu", email: "dong@dong.com", password: "password", password_confirmation: "password"})
+      expect(User.authenticate_with_credentials(@user.email, "incorrect_password")).to eql nil
+    end
+  end
 end
