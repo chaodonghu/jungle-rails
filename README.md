@@ -2,6 +2,10 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+# Demo
+
+ https://dong-hu-e-commerce-ruby-rails.herokuapp.com/
+
 ### Project Screenshots
 ![](./assets/Screenshot1.png)
 
